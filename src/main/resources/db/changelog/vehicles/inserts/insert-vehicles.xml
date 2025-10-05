@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="insert-vehicle-01" author="Thiago Frederico">
+        <insert tableName="vehicles">
+            <column name="id" value="40e6215d-b5c6-4896-987c-144a6312a2a5"/>
+            <column name="customer_id" value="40e6215d-b5c6-4896-987c-144a6312a2a4"/>
+            <column name="license_plate" value="IBF7027"/>
+            <column name="brand" value="BMW"/>
+            <column name="model" value="XPTO"/>
+            <column name="year" value="2016"/>
+            <column name="created_at" valueComputed="now()"/>
+            <column name="updated_at" valueComputed="now()"/>
+        </insert>
+        <insert tableName="vehicles">
+            <column name="id" value="40e6215d-b5c6-4896-987c-144a6312a2a6"/>
+            <column name="customer_id" value="50e6215d-b5c6-4896-987c-144a6312a2a4"/>
+            <column name="license_plate" value="DCQ1354"/>
+            <column name="brand" value="Audi"/>
+            <column name="model" value="XPTO"/>
+            <column name="year" value="2018"/>
+            <column name="created_at" valueComputed="now()"/>
+            <column name="updated_at" valueComputed="now()"/>
+        </insert>
+
+        <insert tableName="vehicles">
+            <column name="id" value="90a1518c-e9fa-812a-4bb0-588ea656d6e8"/>
+            <column name="customer_id" value="60f8215d-b6c7-5897-198d-255b7323a3b5"/>
+            <column name="license_plate" value="XYZ1234"/>
+            <column name="brand" value="Toyota"/>
+            <column name="model" value="Corolla"/>
+            <column name="year" value="2020"/>
+            <column name="created_at" valueComputed="now()"/>
+            <column name="updated_at" valueComputed="now()"/>
+        </insert>
+
+        <insert tableName="vehicles">
+            <column name="id" value="a1a2619c-fa0b-923b-5cc1-699fb767e7f9"/>
+            <column name="customer_id" value="70f9316e-c7d8-4908-829e-366c8434b4c6"/>
+            <column name="license_plate" value="ABC5678"/>
+            <column name="brand" value="Honda"/>
+            <column name="model" value="Civic"/>
+            <column name="year" value="2019"/>
+            <column name="created_at" valueComputed="now()"/>
+            <column name="updated_at" valueComputed="now()"/>
+        </insert>
+
+        <insert tableName="vehicles">
+            <column name="id" value="b2a372af-6b1c-ad3c-6dd2-7a0ac878f80a"/>
+            <column name="customer_id" value="80a0417f-d8e9-7019-3aaf-477d9545c5d7"/>
+            <column name="license_plate" value="DEF9012"/>
+            <column name="brand" value="Ford"/>
+            <column name="model" value="Focus"/>
+            <column name="year" value="2017"/>
+            <column name="created_at" valueComputed="now()"/>
+            <column name="updated_at" valueComputed="now()"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

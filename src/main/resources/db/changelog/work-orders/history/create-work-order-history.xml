@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="20250809153000-1" author="seu-nome-aqui">
+        <comment>Create the work_order_history table</comment>
+
+        <createTable tableName="work_order_history">
+            <column name="id" type="UUID">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="work_order_id" type="UUID">
+                <constraints nullable="false" foreignKeyName="fk_workorderhistory_on_workorder" references="work_orders(id)"/>
+            </column>
+            <column name="changed_by_id" type="UUID">
+                <constraints nullable="true" foreignKeyName="fk_workorderhistory_on_user" references="users(id)"/>
+            </column>
+            <column name="status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="notes" type="VARCHAR(500)"/>
+            <column name="created_at" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>

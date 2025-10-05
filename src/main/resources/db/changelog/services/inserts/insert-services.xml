@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="insert-service-01" author="Thiago Frederico">
+        <insert tableName="services">
+            <column name="id" value="40e6215d-b5c6-4896-987c-144a6312a2a7"/>
+            <column name="name" value="Troca de Óleo"/>
+            <column name="description" value="Trocar Óleo"/>
+            <column name="base_price" value="150"/>
+            <column name="estimated_time_min" value="50"/>
+            <column name="created_at" valueComputed="now()"/>
+            <column name="updated_at" valueComputed="now()"/>
+        </insert>
+        <insert tableName="services">
+            <column name="id" value="40e6215d-b5c6-4896-987c-144a6312a2a8"/>
+            <column name="name" value="Revisão Geral"/>
+            <column name="description" value="Revisão Geral do Veículo"/>
+            <column name="base_price" value="75"/>
+            <column name="estimated_time_min" value="120"/>
+            <column name="created_at" valueComputed="now()"/>
+            <column name="updated_at" valueComputed="now()"/>
+        </insert>
+
+        <insert tableName="services">
+            <column name="id" value="b1a92d74-7c4f-4a5a-b4e3-5f6923c77d1c"/>
+            <column name="name" value="Alinhamento"/>
+            <column name="description" value="Alinhamento de Rodas"/>
+            <column name="base_price" value="90"/>
+            <column name="estimated_time_min" value="60"/>
+            <column name="created_at" valueComputed="now()"/>
+            <column name="updated_at" valueComputed="now()"/>
+        </insert>
+
+        <insert tableName="services">
+            <column name="id" value="8eac4b0f-5bcd-4a0f-8d98-1a9d7bc75f2a"/>
+            <column name="name" value="Balanceamento"/>
+            <column name="description" value="Balanceamento das Rodas"/>
+            <column name="base_price" value="70"/>
+            <column name="estimated_time_min" value="45"/>
+            <column name="created_at" valueComputed="now()"/>
+            <column name="updated_at" valueComputed="now()"/>
+        </insert>
+
+        <insert tableName="services">
+            <column name="id" value="c5ef9c2a-fd41-47e7-9a67-3472a92f229b"/>
+            <column name="name" value="Troca de Pastilha de Freio"/>
+            <column name="description" value="Substituição das pastilhas de freio"/>
+            <column name="base_price" value="110"/>
+            <column name="estimated_time_min" value="90"/>
+            <column name="created_at" valueComputed="now()"/>
+            <column name="updated_at" valueComputed="now()"/>
+        </insert>
+
+        <insert tableName="services">
+            <column name="id" value="7e7bb51f-0fbb-4d96-b3a1-4f6de8b6a1c2"/>
+            <column name="name" value="Troca de Correia"/>
+            <column name="description" value="Troca da correia dentada"/>
+            <column name="base_price" value="130"/>
+            <column name="estimated_time_min" value="110"/>
+            <column name="created_at" valueComputed="now()"/>
+            <column name="updated_at" valueComputed="now()"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

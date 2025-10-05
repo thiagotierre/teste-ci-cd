@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="insert-customer-01" author="Thiago Frederico">
+        <insert tableName="customers">
+            <column name="id" value="40e6215d-b5c6-4896-987c-144a6312a2a4"/>
+            <column name="name" value="Cliente Teste"/>
+            <column name="cpf_cnpj" value="11153575060"/>
+            <column name="phone" value="11999999999"/>
+            <column name="email" value="clienteTeste@cli.com.br"/>
+            <column name="created_at" valueComputed="now()"/>
+            <column name="updated_at" valueComputed="now()"/>
+        </insert>
+        <insert tableName="customers">
+            <column name="id" value="50e6215d-b5c6-4896-987c-144a6312a2a4"/>
+            <column name="name" value="Cliente Teste Segundo"/>
+            <column name="cpf_cnpj" value="14593090067"/>
+            <column name="phone" value="1163874168"/>
+            <column name="email" value="clienteTeste2@cli.com.br"/>
+            <column name="created_at" valueComputed="now()"/>
+            <column name="updated_at" valueComputed="now()"/>
+        </insert>
+
+        <insert tableName="customers">
+            <column name="id" value="60f8215d-b6c7-5897-198d-255b7323a3b5"/>
+            <column name="name" value="Maria Silva"/>
+            <column name="cpf_cnpj" value="12345678901"/>
+            <column name="phone" value="11988887777"/>
+            <column name="email" value="maria.silva@email.com"/>
+            <column name="created_at" valueComputed="now()"/>
+            <column name="updated_at" valueComputed="now()"/>
+        </insert>
+
+        <insert tableName="customers">
+            <column name="id" value="70f9316e-c7d8-4908-829e-366c8434b4c6"/>
+            <column name="name" value="José Santos"/>
+            <column name="cpf_cnpj" value="98765432100"/>
+            <column name="phone" value="11977776666"/>
+            <column name="email" value="jose.santos@email.com"/>
+            <column name="created_at" valueComputed="now()"/>
+            <column name="updated_at" valueComputed="now()"/>
+        </insert>
+
+        <insert tableName="customers">
+            <column name="id" value="80a0417f-d8e9-7019-3aaf-477d9545c5d7"/>
+            <column name="name" value="Ana Oliveira"/>
+            <column name="cpf_cnpj" value="23456789012"/>
+            <column name="phone" value="11966665555"/>
+            <column name="email" value="ana.oliveira@email.com"/>
+            <column name="created_at" valueComputed="now()"/>
+            <column name="updated_at" valueComputed="now()"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

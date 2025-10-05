@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: challengeone-config
+data:
+  SPRING_DATASOURCE_URL: jdbc:postgresql://challengeone-db:5432/challengeone
+  SPRING_JPA_HIBERNATE_DDL_AUTO: none

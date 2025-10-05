@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="create-work-order-table" author="João Vitor Lembeck">
+        <createTable tableName="work_orders">
+            <column name="id" type="UUID">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="customer_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="vehicle_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="assigned_mechanic_id" type="UUID"/>
+            <column name="status" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="total_amount" type="DECIMAL(10, 2)"/>
+            <column name="created_at" type="TIMESTAMP WITH TIME ZONE" defaultValueComputed="now()">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP WITH TIME ZONE" defaultValueComputed="now()">
+                <constraints nullable="false"/>
+            </column>
+            <column name="finished_at" type="TIMESTAMP WITH TIME ZONE"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="work_orders"
+                                 baseColumnNames="customer_id"
+                                 referencedTableName="customers"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_work_orders_customers"/>
+
+        <addForeignKeyConstraint baseTableName="work_orders"
+                                 baseColumnNames="vehicle_id"
+                                 referencedTableName="vehicles"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_work_orders_vehicles"/>
+
+        <addForeignKeyConstraint baseTableName="work_orders"
+                                 baseColumnNames="created_by_id"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_work_orders_created_by"/>
+
+        <addForeignKeyConstraint baseTableName="work_orders"
+                                 baseColumnNames="assigned_mechanic_id"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_work_orders_assigned_mechanic"/>
+    </changeSet>
+
+</databaseChangeLog>

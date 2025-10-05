@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="create-work-orders-services-table" author="João Vitor Lembeck">
+        <createTable tableName="work_orders_services">
+            <column name="id" type="UUID">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="work_order_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="service_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="applied_price" type="DECIMAL(10, 2)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="work_orders_services"
+                                 baseColumnNames="work_order_id"
+                                 referencedTableName="work_orders"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_work_orders_services_work_orders"/>
+
+        <addForeignKeyConstraint baseTableName="work_orders_services"
+                                 baseColumnNames="service_id"
+                                 referencedTableName="services"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_work_orders_services_services"/>
+
+        <comment>
+            Cria a tabela de associação entre ordem de serviço e serviços realizados.
+        </comment>
+    </changeSet>
+
+</databaseChangeLog>

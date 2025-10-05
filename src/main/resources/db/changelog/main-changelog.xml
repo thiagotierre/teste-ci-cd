@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <include file="customers/create-customers-table.xml" relativeToChangelogFile="true"/>
+    <include file="users/create-users-table.xml" relativeToChangelogFile="true"/>
+    <include file="parts/create-parts-table.xml" relativeToChangelogFile="true"/>
+    <include file="services/create-services-table.xml" relativeToChangelogFile="true"/>
+    <include file="vehicles/create-vehicles-table.xml" relativeToChangelogFile="true"/>
+    <include file="work-orders/create-work-orders-table.xml" relativeToChangelogFile="true"/>
+    <include file="work-orders/create-work-order-part-table.xml" relativeToChangelogFile="true"/>
+    <include file="work-orders/create-work-orders-services-table.xml" relativeToChangelogFile="true"/>
+    <include file="work-orders/history/create-work-order-history.xml" relativeToChangelogFile="true"/>
+    <include file="users/inserts/insert-adm-user.xml" relativeToChangelogFile="true"/>
+    <include file="customers/inserts/insert-customers.xml" relativeToChangelogFile="true"/>
+    <include file="parts/inserts/insert-parts.xml" relativeToChangelogFile="true"/>
+    <include file="services/inserts/insert-services.xml" relativeToChangelogFile="true"/>
+    <include file="vehicles/inserts/insert-vehicles.xml" relativeToChangelogFile="true"/>
+    <include file="work-orders/avarege-time-create-work-order-table.xml" relativeToChangelogFile="true"/>
+
+</databaseChangeLog>
