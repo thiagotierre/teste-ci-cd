@@ -1,4 +1,4 @@
-FROM maven:3-amazoncorretto-21 AS maven
+FROM maven:3.9.11-amazoncorretto-21 AS maven
 WORKDIR /usr/src/app
 COPY . .
 RUN mvn package -DskipTests
