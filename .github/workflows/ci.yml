@@ -31,7 +31,7 @@ jobs:
       # 4️⃣ Build da imagem Docker
       - name: Build Docker Image
         run: |
-          IMAGE_NAME=challengeone:latest
+          IMAGE_NAME=localhost/challengeone-image:1.0
           docker build -t $IMAGE_NAME .
 
       # 3️⃣ Importa a imagem para o MicroK8s
