@@ -28,11 +28,6 @@ jobs:
       - name: Build and Test with Maven
         run: mvn -B clean package
 
-      - name: Install pass and docker-credential-pass
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y pass docker-credential-pass
-
       # 4️⃣ Build da imagem Docker
       - name: Build Docker Image
         run: |
