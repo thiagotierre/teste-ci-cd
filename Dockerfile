@@ -3,7 +3,7 @@ WORKDIR /usr/src/app
 COPY . .
 RUN mvn package -DskipTests
 
-FROM openjdk:21-oracle
+FROM openjdk:21-jdk
 WORKDIR /usr/src/app
 COPY --from=maven /usr/src/app/infrastructure/target/challenge.jar app.jar
 EXPOSE 8080
