@@ -1,4 +1,4 @@
-name: CI - Spring Boot Build, Test & Run Container
+name: CI - Spring Boot Build, Test & Run Container Deployment
 
 on:
   push:
