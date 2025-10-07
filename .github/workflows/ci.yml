@@ -43,7 +43,7 @@ jobs:
       - name: Import image to MicroK8s
         run: |
           IMAGE_NAME=localhost/challengeone-image:1.0
-          docker save $IMAGE_NAME | microk8s ctr image import -
+          docker save $IMAGE_NAME | sudo microk8s ctr image import -
 
       # 4️⃣ Verifica se a imagem foi importada corretamente
       - name: Check MicroK8s images
