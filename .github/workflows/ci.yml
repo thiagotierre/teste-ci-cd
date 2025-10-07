@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: Build, Test and Run Docker Image
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       # 1️⃣ Checkout do código fonte
@@ -31,4 +31,26 @@ jobs:
       # 4️⃣ Build da imagem Docker
       - name: Build Docker Image
         run: |
-          docker build -t spring-boot-app:latest .
+          IMAGE_NAME=challengeone:latest
+          docker build -t $IMAGE_NAME .
+
+      # 3️⃣ Importa a imagem para o MicroK8s
+      - name: Import image to MicroK8s
+        run: |
+          IMAGE_NAME=localhost/challengeone-image:1.0
+          docker save $IMAGE_NAME | microk8s ctr image import -
+
+      # 4️⃣ Verifica se a imagem foi importada corretamente
+      - name: Check MicroK8s images
+        run: |
+          microk8s ctr images ls | grep challengeone || (echo "Image not found!" && exit 1)
+
+      # 5️⃣ Aplica os manifests do Kubernetes
+      - name: Apply Kubernetes manifests
+        run: |
+          microk8s kubectl apply -f k8s/
+
+      # 6️⃣ Confirma se o deploy foi iniciado corretamente
+      - name: Check deployment status
+        run: |
+          microk8s kubectl rollout status deployment/challengeone-deployment
