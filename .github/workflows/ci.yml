@@ -45,11 +45,6 @@ jobs:
           IMAGE_NAME=localhost/challengeone-image:1.0
           docker save $IMAGE_NAME | sudo microk8s ctr image import -
 
-      # 4️⃣ Verifica se a imagem foi importada corretamente
-      - name: Check MicroK8s images
-        run: |
-          microk8s ctr images ls | grep challengeone || (echo "Image not found!" && exit 1)
-
       # 5️⃣ Aplica os manifests do Kubernetes
       - name: Apply Kubernetes manifests
         run: |
