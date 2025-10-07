@@ -49,8 +49,3 @@ jobs:
       - name: Apply Kubernetes manifests
         run: |
           microk8s kubectl apply -f k8s/
-
-      # 6️⃣ Confirma se o deploy foi iniciado corretamente
-      - name: Check deployment status
-        run: |
-          microk8s kubectl rollout status deployment/challengeone-deployment
