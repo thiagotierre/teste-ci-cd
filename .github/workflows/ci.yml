@@ -80,10 +80,6 @@ jobs:
         run: |
          terraform import kubernetes_persistent_volume_claim.pgdata challengeone/pgdata-pvc || echo "PVC já importado"
 
-      - name: Terraform Plan
-        working-directory: ${{ env.TERRAFORM_DIR }}
-        run: terraform plan -out=tfplan
-
       - name: Terraform Apply
         working-directory: ${{ env.TERRAFORM_DIR }}
-        run: terraform apply -auto-approve tfplan
+        run: terraform apply -auto-approve
