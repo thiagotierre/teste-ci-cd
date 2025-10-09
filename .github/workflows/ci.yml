@@ -62,13 +62,13 @@ jobs:
           terraform_version: 1.9.7
 
       - name: Terraform Init
-        working-directory: $TERRAFORM_DIR
+        working-directory: ${{ env.TERRAFORM_DIR }}
         run: terraform init
 
       - name: Terraform Plan
-        working-directory: $TERRAFORM_DIR
+        working-directory: ${{ env.TERRAFORM_DIR }}
         run: terraform plan -out=tfplan
 
       - name: Terraform Apply
-        working-directory: $TERRAFORM_DIR
+        working-directory: ${{ env.TERRAFORM_DIR }}
         run: terraform apply -auto-approve tfplan
