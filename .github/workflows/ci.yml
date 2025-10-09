@@ -73,16 +73,6 @@ jobs:
       - name: Terraform Init
         working-directory: ${{ env.TERRAFORM_DIR }}
         run: terraform init
-          
-      # 5️⃣ Importar namespace se ele já existir no cluster
-      - name: Importar namespace challengeone (caso já exista)
-        run: |
-          if kubectl get namespace challengeone >/dev/null 2>&1; then
-            echo "✅ Namespace 'challengeone' já existe — importando para o Terraform..."
-            terraform import -no-color kubernetes_namespace.challengeone challengeone || true
-          else
-            echo "🆕 Namespace 'challengeone' ainda não existe — nada a importar."
-          fi
 
       - name: Terraform Apply
         working-directory: ${{ env.TERRAFORM_DIR }}
