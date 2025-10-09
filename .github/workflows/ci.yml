@@ -73,18 +73,6 @@ jobs:
       - name: Terraform Init
         working-directory: ${{ env.TERRAFORM_DIR }}
         run: terraform init
-          
-      # 🔹 Importar PVC existente antes do apply
-      - name: Terraform Import PVC
-        working-directory: ${{ env.TERRAFORM_DIR }}
-        run: |
-         terraform import kubernetes_persistent_volume_claim.pgdata challengeone/pgdata-pvc || echo "PVC já importado"
-
-      # 🔹 Importar HPA existente antes do apply
-      - name: Terraform Import HPA
-        working-directory: ${{ env.TERRAFORM_DIR }}
-        run: |
-          terraform import kubernetes_horizontal_pod_autoscaler_v2.challengeone_hpa challengeone/challengeone-hpa || echo "HPA já importado"
 
       - name: Terraform Apply
         working-directory: ${{ env.TERRAFORM_DIR }}
