@@ -1,7 +1,7 @@
 resource "kubernetes_deployment" "challengeone_app" {
 
   depends_on = [
-    kubernetes_deployment.challengeone_db
+    kubernetes_stateful_set.challengeone_db
   ]
 
   metadata {

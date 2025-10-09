@@ -1,10 +1,11 @@
-resource "kubernetes_deployment" "challengeone_db" {
+resource "kubernetes_stateful_set" "challengeone_db" {
   metadata {
     name      = "challengeone-db"
     namespace = kubernetes_namespace.challengeone.metadata[0].name
   }
 
   spec {
+    service_name = "challengeone-db"
     replicas = 1
 
     selector {
@@ -36,17 +37,27 @@ resource "kubernetes_deployment" "challengeone_db" {
           }
 
           volume_mount {
-            name       = "pgdata-pvc"
+            name       = "pgdata"
             mount_path = "/var/lib/postgresql/data"
           }
         }
+      }
+    }
+    volume_claim_template {
+      metadata {
+        name = "pgdata"
+      }
 
-        volume {
-          name = "pgdata-pvc"
-          persistent_volume_claim {
-            claim_name = kubernetes_persistent_volume_claim.pgdata.metadata[0].name
+      spec {
+        access_modes = ["ReadWriteOnce"]
+
+        resources {
+          requests = {
+            storage = "1Gi"
           }
         }
+
+        storage_class_name = "local-path"
       }
     }
   }

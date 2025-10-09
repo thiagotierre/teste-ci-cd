@@ -6,6 +6,7 @@ resource "kubernetes_service" "challengeone_db" {
   }
 
   spec {
+    cluster_ip = "None"
     selector = {
       app = "challengeone-db"
     }
@@ -14,8 +15,6 @@ resource "kubernetes_service" "challengeone_db" {
       port        = 5432
       target_port = 5432
     }
-
-    type = "ClusterIP"
   }
 }
 
